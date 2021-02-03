@@ -1,0 +1,514 @@
+---
+title: "Review Figures"
+author: "Shan Sun, Alicia Sorgen, and Ivory Blakley"
+output:
+  pdf_document:
+    toc: true
+    toc_depth: 3
+  html_document:
+    toc: true
+    toc_depth: 3
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+\newpage
+# Review Reproduced Figures
+
+This is a side-by-side comparison between figures as they appear in the published work, and the corresponding figures that were re-generated on:                          
+` `r date()` `
+
+This document aims to:              
+
+ * Create an easy way for the authors to check that the annotated figures align with the output of the script, even throughout an iterative review process that may prompt edits at multiple stages of the pipeline.
+ * Make the pipeline transparent to readers.
+ * Facilitate reproducing the computational components of this work.
+
+The old and new may not be bit-for-bit identical.  There may some random seed that is used in a training step, or a difference in font libraries; graphics parameters like resolution or image size may be different, the publication may have some manually curated labels that the script-generated image does not.  There are many acceptable reasons why a reproduction of a figure may not be identical to the original; but we expect that the core conclusion from the original will hold for the reproduction.
+
+```{r}
+pipeRoot <- dirname(dirname(getwd()))
+showPipelineRoot <- function(){
+    # in docker, the $BLJ_PROJ folder is mapped to 'mnt/efs/pipelines'
+    return(gsub("/mnt/efs/pipelines", "<BLJ_PROJ folder>", pipeRoot))
+}
+showPipelineFile <- function(filePath){
+    return(gsub(paste0(pipeRoot,"/"), "", filePath))
+}
+origPanels = paste0(dirname(getwd()), "/resources")
+```
+
+The re-produced images are taken from modules under this folder:               
+``r showPipelineRoot()``
+
+
+\newpage
+## Figure 1
+
+```{r Fig1, out.width="80%"}
+fig1 = file.path(origPanels, "Fig1.pdf")
+f1legend = file.path(origPanels, "Figure1-legend.md")
+include_graphics(fig1)
+```
+
+`r readLines(f1legend)`
+
+\newpage
+### Panel 1a
+
+```{r out.width="50%"}
+fileName="pcoa_race.pdf"
+left = file.path(origPanels, fileName)
+
+module = dir(pipeRoot, pattern="_RaceCase", full.names=TRUE)
+moduleOutDir = file.path(module, "output/race")
+right = file.path(moduleOutDir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+\newpage
+### Panel 1b
+
+```{r out.width="50%"}
+fileName="pcoa_case.pdf"
+left = file.path(origPanels, fileName)
+
+module = dir(pipeRoot, pattern="_RaceCase", full.names=TRUE)
+moduleOutDir = file.path(module, "output/case")
+right = file.path(moduleOutDir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+
+\newpage
+### Panel 1c
+
+```{r out.width="50%"}
+fileName="adonis_r2_bar.pdf"
+left = file.path(origPanels, fileName)
+
+module = dir(pipeRoot, pattern="PERMANOVA", full.names=TRUE)
+moduleOutDir = file.path(module, "output")
+right = file.path(moduleOutDir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+\newpage
+### Panel 1d - Shannon Index
+
+```{r out.width="50%"}
+fileName="shannon_race_box.pdf"
+left = file.path(origPanels, fileName)
+
+module = dir(pipeRoot, pattern="_RaceCase", full.names=TRUE)
+moduleOutDir = file.path(module, "output/race")
+right = file.path(moduleOutDir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+\newpage
+### Panel 1d - _L. iners_
+
+```{r out.width="50%"}
+fileName="liners_race_box.pdf"
+left = file.path(origPanels, fileName)
+
+module = dir(pipeRoot, pattern="_RaceCase", full.names=TRUE)
+moduleOutDir = file.path(module, "output/race")
+right = file.path(moduleOutDir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+\newpage
+### Panel 1d - _L. crispatus_
+
+```{r out.width="50%"}
+fileName="lcrisp_race_box.pdf"
+left = file.path(origPanels, fileName)
+
+module = dir(pipeRoot, pattern="_RaceCase", full.names=TRUE)
+moduleOutDir = file.path(module, "output/race")
+right = file.path(moduleOutDir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+\newpage
+### Panel 1e - Shannon Index
+
+```{r out.width="50%"}
+fileName="shannon_case_box.pdf"
+left = file.path(origPanels, fileName)
+
+module = dir(pipeRoot, pattern="_RaceCase", full.names=TRUE)
+moduleOutDir = file.path(module, "output/case")
+right = file.path(moduleOutDir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+\newpage
+### Panel 1e - _L. iners_
+
+```{r out.width="50%"}
+fileName="liners_case_box.pdf"
+left = file.path(origPanels, fileName)
+
+module = dir(pipeRoot, pattern="_RaceCase", full.names=TRUE)
+moduleOutDir = file.path(module, "output/case")
+right = file.path(moduleOutDir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+\newpage
+### Panel 1e - _L. crispatus_
+
+```{r out.width="50%"}
+fileName="lcrisp_case_box.pdf"
+left = file.path(origPanels, fileName)
+
+module = dir(pipeRoot, pattern="_RaceCase", full.names=TRUE)
+moduleOutDir = file.path(module, "output/case")
+right = file.path(moduleOutDir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+
+
+
+
+
+\newpage
+## Figure 2
+
+```{r Fig2, out.width="80%"}
+fig2 = file.path(origPanels, "Fig2.pdf")
+f2legend = file.path(origPanels, "Figure2-legend.md")
+include_graphics(fig2)
+```
+
+`r readLines(f2legend)`
+
+\newpage
+### Panel 2a
+
+```{r out.width="50%"}
+fileName="class_bar.pdf"
+left = file.path(origPanels, fileName)
+
+module = dir(pipeRoot, pattern="Cluster", full.names=TRUE)
+moduleOutDir = file.path(module, "output")
+right = file.path(moduleOutDir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+\newpage
+### Panel 2b
+
+```{r out.width="50%"}
+fileName="pcoa_cluster_JF_maj.pdf"
+left = file.path(origPanels, fileName)
+
+module = dir(pipeRoot, pattern="Cluster", full.names=TRUE)
+moduleOutDir = file.path(module, "output")
+right = file.path(moduleOutDir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+\newpage
+### Panel 2c
+
+```{r out.width="50%"}
+fileName="pcoa_race_case.pdf"
+left = file.path(origPanels, fileName)
+
+module = dir(pipeRoot, pattern="Cluster", full.names=TRUE)
+moduleOutDir = file.path(module, "output")
+right = file.path(moduleOutDir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+\newpage
+### Panel 2d
+
+```{r out.width="50%"}
+fileName="cluster_perc_bar.pdf"
+left = file.path(origPanels, fileName)
+
+module = dir(pipeRoot, pattern="Cluster", full.names=TRUE)
+moduleOutDir = file.path(module, "output")
+right = file.path(moduleOutDir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+\newpage
+### Panel 2e
+
+```{r out.width="50%"}
+fileName="cluster_shannon_box.pdf"
+left = file.path(origPanels, fileName)
+
+module = dir(pipeRoot, pattern="Cluster", full.names=TRUE)
+moduleOutDir = file.path(module, "output")
+right = file.path(moduleOutDir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+\newpage
+### Panel 2f
+
+```{r out.width="50%"}
+fileName="cluster_race_bar_stack.pdf"
+left = file.path(origPanels, fileName)
+
+module = dir(pipeRoot, pattern="Cluster", full.names=TRUE)
+moduleOutDir = file.path(module, "output")
+right = file.path(moduleOutDir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+\newpage
+### Panel 2g - _L. crispatus_ and _L. iners_
+
+```{r out.width="50%"}
+fileName="cluster_race_perc_bar.pdf"
+left = file.path(origPanels, fileName)
+
+module = dir(pipeRoot, pattern="Cluster", full.names=TRUE)
+moduleOutDir = file.path(module, "output")
+right = file.path(moduleOutDir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+\newpage
+### Panel 2g - Overall
+
+```{r out.width="50%"}
+fileName="race_perc_bar.pdf"
+left = file.path(origPanels, fileName)
+
+module = dir(pipeRoot, pattern="Cluster", full.names=TRUE)
+moduleOutDir = file.path(module, "output")
+right = file.path(moduleOutDir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+
+
+
+\newpage
+## Figure 3
+
+```{r Fig3, out.width="80%"}
+fig3 = file.path(origPanels, "Fig3.pdf")
+f3legend = file.path(origPanels, "Figure3-legend.md")
+include_graphics(fig3)
+```
+
+`r readLines(f3legend)`
+
+
+\newpage
+### Panel 3a
+
+```{r out.width="50%"}
+fileName="pcoa_race_douche.pdf"
+left = file.path(origPanels, fileName)
+
+module = dir(pipeRoot, pattern="_Douche", full.names=TRUE)
+moduleOutDir = file.path(module, "output")
+right = file.path(moduleOutDir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+\newpage
+### Panel 3b
+
+```{r out.width="50%"}
+fileName="cluster_douche_race_bar_stack.pdf"
+left = file.path(origPanels, fileName)
+
+module = dir(pipeRoot, pattern="_Douche", full.names=TRUE)
+moduleOutDir = file.path(module, "output")
+right = file.path(moduleOutDir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+\newpage
+### Panel 3c - Shannon Index
+
+```{r out.width="50%"}
+fileName="shannon_race_douche_box.pdf"
+left = file.path(origPanels, fileName)
+
+module = dir(pipeRoot, pattern="_Douche", full.names=TRUE)
+moduleOutDir = file.path(module, "output")
+right = file.path(moduleOutDir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+\newpage
+### Panel 3c - _L. crispatus_
+
+```{r out.width="50%"}
+fileName="lcrisp_race_douche_box.pdf"
+left = file.path(origPanels, fileName)
+
+module = dir(pipeRoot, pattern="_Douche", full.names=TRUE)
+moduleOutDir = file.path(module, "output")
+right = file.path(moduleOutDir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+\newpage
+### Panel 3c - _L. iners_
+
+```{r out.width="50%"}
+fileName="liners_race_douche_box.pdf"
+left = file.path(origPanels, fileName)
+
+module = dir(pipeRoot, pattern="_Douche", full.names=TRUE)
+moduleOutDir = file.path(module, "output")
+right = file.path(moduleOutDir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+\newpage
+### Panel 3d
+
+```{r out.width="50%"}
+fileName="race_cor_douche.pdf"
+left = file.path(origPanels, fileName)
+
+module = dir(pipeRoot, pattern="_Douche", full.names=TRUE)
+moduleOutDir = file.path(module, "output")
+right = file.path(moduleOutDir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+\newpage
+### Panel 3e
+
+```{r out.width="50%"}
+fileName="douche_cor_race.pdf"
+left = file.path(origPanels, fileName)
+
+module = dir(pipeRoot, pattern="_Douche", full.names=TRUE)
+moduleOutDir = file.path(module, "output")
+right = file.path(moduleOutDir, fileName)
+
+include_graphics(c(left, right))
+```
+
+The left image comes from the publication.  The right image is the pipeline result file:            
+``r showPipelineFile(right)``
+
+\newpage
+## Panel 3f
+
+```{r Fig3f, out.width="75%"}
+fig3f = file.path(origPanels, "Fig3f.pdf")
+include_graphics(fig3f)
+```
+
+This panel is not reproduced in the BioLockJ pipeline.
+
+
+\newpage
+```{r}
+sessionInfo()
+```
