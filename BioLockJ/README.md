@@ -5,6 +5,9 @@ BioLockJ - https://biolockj-dev-team.github.io/BioLockJ/Getting-Started/
 
 ## 2. Download PINmicrobiome directory
 `git clone https://github.com/ssun6/PINmicrobiome.git`
+=======
+## 2. Download VagMicro directory
+`git clone `
 
 ## 3. Set up required software
 
@@ -31,7 +34,11 @@ Make sure all required R packages are installed
 ## 4. Run BioLockJ pipeline
 
 Move to the Analysis folder:            
+<<<<<<< HEAD
 `cd <path/to/PINmicrobiome/BioLockJ`
+=======
+`cd <path/to/VagMicro/BioLockJ`
+>>>>>>> aaf3799eeac7545763fbcc183756ad7935db311a
 
 To run the pipeline using **locally installed software**:                 
 `biolockj vaginalMicrobiome.properties`
