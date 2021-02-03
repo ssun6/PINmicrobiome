@@ -13,10 +13,10 @@ See `BioLockJ/README` for instructions on how to repeat the entire analysis on y
 
 ## Manuscript
 
-Title:                
+**Title:**                
 _Disentangling race, environment and the microbiome in a study of preterm birth risk_
 
-Authors:               
+**Authors:**               
 Shan Sun, Anthony Fodor, Myrna Serrano, Jennifer Fetweiss, Patricia Basta, Emma Rosen, Jake Thistle, Michael Wu, John Thorp, Anna Maria Siega-Riz, Greg Buck, Stephanie M. Engel
 
 This article is a preprint and has not been peer-reviewed. It reports new medical research that has yet to be evaluated and so should not be used to guide clinical practice.
