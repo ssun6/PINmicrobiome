@@ -75,16 +75,6 @@ meta1$Race_Case=factor(paste(meta1$Race,meta1$Case,sep="_"))
 # stir_norm1=stir_norm1[which(meta$C_MRACE%in%c(1,2)),]
 # meta1=meta[which(meta$C_MRACE%in%c(1,2)),]
 write.csv(stir_norm1,file="stir_norm1.csv")
-filename=read.table(file="/Users/shansun/filenames.txt",sep=" ",quote="")
-filename=data.frame(filename[1:2136,])
-filename$sample=sapply(strsplit(as.character(filename[,1]),"-"),"[[",1)
-filename$R=sapply(strsplit(as.character(filename[,1]),"_"),"[[",2)
-
-filename1=filename[filename$R=="R1.hg19unmapped.fastq",]
-filename2=filename[filename$R=="R2.hg19unmapped.fastq",]
-filename3=merge(filename1,filename2,by="sample",all=T)
-filename4=filename3[match(rownames(stir_norm1),filename3$sample),]
-write.csv(filename4,file="filename_format.csv")
 
 stir_shan=vegan::diversity(stir_norm1,index = "shannon", MARGIN = 1, base = exp(1))
 stir_simp=vegan::diversity(stir_norm1,index = "simpson", MARGIN = 1, base = exp(1))
