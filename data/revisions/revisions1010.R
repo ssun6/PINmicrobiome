@@ -11,7 +11,7 @@ library(ggrepel)
 library(farver)
 library(ALDEx2)
 
-setwd("/Users/shansun/Google\ Drive/engel/new_paper/0208NM/revision1/test/")
+setwd("../revision/")
 
 meta1=read.csv(file="meta824_public.csv",row.names=1,header = T)
 stir_norm=read.csv(file="PIN_microbiome_taxa_count.csv",header=T,row.names=1)
